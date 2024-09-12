@@ -33,6 +33,24 @@ This repository contains code for the following:
    git clone https://github.com/your-repo/rag-implementation
    cd rag-implementation
 
+2. **Switch to branch Week1-Vectorize**:
+    ```bash
+    git checkout Week2-Vectorize
+
+3. **Install Requirements**:
+    pip install -r requirements.txt
+
+4. **Add environmental variables**:
+    Create a file in the root directory named ".env"
+    Please save the following 2 api-keys in this file:
+    'PINECONE_API_KEY'
+    'OPENAI_API_KEY'
+
+    Ensure that .env file is ignored from version control
+    echo ".env" >> .gitignore
+
+5. 
+
 To start flask app:
 cd 'Chatbot UI'
 python app.py

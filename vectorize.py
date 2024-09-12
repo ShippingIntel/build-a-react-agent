@@ -4,8 +4,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 
-os.environ['OPENAI_API_KEY'] = 'ENTER API KEY'
-os.environ['PINECONE_API_KEY'] = 'ENTER API KEY'
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+os.environ['PINECONE_API_KEY'] = os.getenv('PINECONE_API_KEY')
 
 def vectorize_txt(index, file_path_text):
     try:
