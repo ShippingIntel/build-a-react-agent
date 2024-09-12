@@ -34,7 +34,6 @@ This repository contains code for the following:
    cd rag-implementation
 
 To start flask app:
-cd 'Chatbot UI'
 python app.py
 
 Project is licensed under MIT License.
