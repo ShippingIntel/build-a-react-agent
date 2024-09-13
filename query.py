@@ -2,16 +2,21 @@
 # Session 2 - Shipping Intel ReAct Class
 
 #!/usr/bin/env python3.10
-
 import os
 import logging
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import Pinecone as PineconeLangChain
+from dotenv import load_dotenv
+
 
 # Set up logging
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Set environment variables for API keys
 os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 os.environ['PINECONE_API_KEY'] = os.getenv('PINECONE_API_KEY')
 
@@ -26,8 +31,8 @@ def domain_specific(query: str, index_name: str):
     except Exception as e:
         return {"error": str(e)}
 
-query='ask a query'
-index = os.getenv('indexname')
+query='Give me a summary'
+index = 'quickstart'
 output=domain_specific(query, index)
 print(output)
 

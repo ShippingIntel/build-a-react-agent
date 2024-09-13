@@ -2,15 +2,11 @@
 
 This project contains an implementation of Retrieval-Augmented Generation (RAG) using the LangChain framework. The code integrates OpenAI's GPT models and Pinecone's vector store to create a domain-specific chatbot and document vectorizer. Additionally, a Flask-based web app is included for a basic interactive frontend.
 
+Please see the Branch Week2-Vectorize for the code implementation including pre-requisites and setup instructions.
+
 ## Table of Contents
 1. [Overview](#overview)
-2. [Prerequisites](#prerequisites)
-3. [Setup Instructions](#setup-instructions)
-4. [Usage](#usage)
-   - [Domain-Specific Query](#domain-specific-query)
-   - [Text Vectorization](#text-vectorization)
-   - [Foundation Model Query](#foundation-model-query)
-5. [Web Application](#web-application)
+
 6. [License](#license)
 
 ## Overview
@@ -20,55 +16,6 @@ This repository contains code for the following:
 - **Foundation model interaction**: Simple API call to OpenAI's GPT model.
 - **Basic Flask web app**: Includes an interface to simulate chatbot interactions.
 
-## Prerequisites
-- Python 3.10+
-- OpenAI API Key
-- Pinecone API Key
-- Flask
-- LangChain
-- Python-dotenv
-
-## Setup Instructions
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-repo/rag-implementation
-   cd rag-implementation
-   ```
-
-2. **Switch to branch Week1-Vectorize**:
-    ```bash
-    git checkout Week2-Vectorize
-    ```
-
-3. **Install Requirements**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. **Add environmental variables**:
-    Create a file in the root directory named ".env"and save the following 2 api-keys in this file:
-    ```bash
-    'PINECONE_API_KEY'
-    'OPENAI_API_KEY'
-    'indexname'
-    'textpath'
-    ```
-
-    Ensure that .env file is ignored from version control
-    ```bash
-    echo ".env" >> .gitignore
-    ```
-
-5. **Create an index in Pinecone**:
-    ```bash
-    python create-index.py
-    ```
-
-6. **Vectorize the text file**:
-    ```bash
-    python vectorize.py
-    ```
 
 Project is licensed under MIT License.
 

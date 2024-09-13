@@ -1,5 +1,10 @@
 import os, requests
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Set environment variables for API keys
 os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
 def foundation(query: str, openai_model: str):
@@ -24,7 +29,6 @@ def foundation(query: str, openai_model: str):
     except Exception as e:
         return None
 
-query ='color of a banana'
+query ='As a maritime professional, how should I respond to someone calling my ship a boat.'
 model= 'gpt-3.5-turbo'
 print(foundation(query, model))
-
