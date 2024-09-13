@@ -333,27 +333,32 @@
     </body>
 
     <script>
+        // Function to handle the Enter key press event
         function handleKeyDown(event) {
-            if (event.keyCode === 13) {
+            if (event.keyCode === 13) { // Check if Enter key is pressed
                 sendMessageFromInput();
             }
         }
+
+        // Add click event listener to the send button
         document.querySelector('.send_message').addEventListener('click', function () {
             var inputElement = document.querySelector('.message_input');
             var message = inputElement.value.trim();
             console.log('Send button clicked. Message:', message);
             if (message) {
-                inputElement.value = '';
-                var typingIndicator = displayTypingIndicator();
-                sendMessage(message, typingIndicator);
+                inputElement.value = ''; // Clear the input field
+                var typingIndicator = displayTypingIndicator(); // Show typing indicator
+                sendMessage(message, typingIndicator); // Send the message
             }
         });
 
+        // Function to scroll the message list to the bottom
         function scrollToBottom() {
             var messageList = document.querySelector('.messages');
             messageList.scrollTop = messageList.scrollHeight;
         }
 
+        // Function to display a message in the chat window
         function displayMessage(message, side, imageUrl) {
             var messageList = document.querySelector('.messages');
 
@@ -388,6 +393,7 @@
             scrollToBottom(); // Scroll to the bottom after adding a new message
         }
 
+        // Function to send a message to the server
         function sendMessage(message, typingIndicator) {
             console.log('Sending message to server:', message);
             fetch('/operations_dsm', {
@@ -403,22 +409,23 @@
                 })
                 .then(data => {
                     console.log('Response data:', data);
-                    typingIndicator.remove();
+                    typingIndicator.remove(); // Remove typing indicator
                     if (data.result) {
-                        displayMessage(data.result, 'left');
+                        displayMessage(data.result, 'left'); // Display response message
                     } else {
                         console.error('No result in response data:', data);
                     }
                     if (data.html_map && data.html_map !== 'undefined') {
-                        displayHtmlContent(data.html_map, 'left');
+                        displayHtmlContent(data.html_map, 'left'); // Display HTML content if available
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    typingIndicator.remove();
+                    typingIndicator.remove(); // Remove typing indicator on error
                 });
         }
 
+        // Function to display a typing indicator
         function displayTypingIndicator() {
             var messageList = document.querySelector('.messages');
             var newMessage = document.createElement('li');
@@ -439,18 +446,20 @@
             return newMessage;
         }
 
+        // Function to handle sending a message from the input field
         function sendMessageFromInput() {
             var inputElement = document.querySelector('.message_input');
             var message = inputElement.value.trim();
             console.log('Enter key pressed. Message:', message);
             if (message) {
-                displayMessage(message, 'right');
-                inputElement.value = '';
-                var typingIndicator = displayTypingIndicator();
-                sendMessage(message, typingIndicator);
+                displayMessage(message, 'right'); // Display user's message
+                inputElement.value = ''; // Clear the input field
+                var typingIndicator = displayTypingIndicator(); // Show typing indicator
+                sendMessage(message, typingIndicator); // Send the message
             }
         }
 
+        // Add event listeners for sending messages
         document.querySelector('.send_message').addEventListener('click', sendMessageFromInput);
         document.querySelector('.message_input').addEventListener('keydown', handleKeyDown);
     </script>
