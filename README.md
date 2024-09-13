@@ -25,6 +25,8 @@ This repository contains code for the following:
 - OpenAI API Key
 - Pinecone API Key
 - Flask
+- LangChain
+- Python-dotenv
 
 ## Setup Instructions
 
@@ -32,27 +34,41 @@ This repository contains code for the following:
    ```bash
    git clone https://github.com/your-repo/rag-implementation
    cd rag-implementation
+   ```
 
 2. **Switch to branch Week1-Vectorize**:
     ```bash
     git checkout Week2-Vectorize
+    ```
 
 3. **Install Requirements**:
+    ```bash
     pip install -r requirements.txt
+    ```
 
 4. **Add environmental variables**:
-    Create a file in the root directory named ".env"
-    Please save the following 2 api-keys in this file:
+    Create a file in the root directory named ".env"and save the following 2 api-keys in this file:
+    ```bash
     'PINECONE_API_KEY'
     'OPENAI_API_KEY'
+    'indexname'
+    'textpath'
+    ```
 
     Ensure that .env file is ignored from version control
+    ```bash
     echo ".env" >> .gitignore
+    ```
 
-5. 
+5. **Create an index in Pinecone**:
+    ```bash
+    python create-index.py
+    ```
 
-To start flask app:
-cd 'Chatbot UI'
-python app.py
+6. **Vectorize the text file**:
+    ```bash
+    python vectorize.py
+    ```
 
 Project is licensed under MIT License.
+
