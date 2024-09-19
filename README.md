@@ -31,10 +31,6 @@ This repository contains code for the following:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/your-repo/rag-implementation
-   cd rag-implementation
-
-To start flask app:
-cd 'Chatbot UI'
-python app.py
+   cd Week2-Vectorize
 
 Project is licensed under MIT License.
