@@ -17,9 +17,9 @@ def vectorize_txt(index, file_path_text):
         print("Ingesting... [TextLoader]")
         # Check if the file exists before attempting to load
         if os.path.exists(file_path_text):
-
-            loader = TextLoader(file_path_text)  # Load the text file
+            loader = TextLoader(file_path_text, encoding = 'UTF-8')  # Load the text file with specified format
             document = loader.load()  # Load the document content
+            print('test')
         else:
             raise FileNotFoundError(f"Error: The file {file_path_text} does not exist.")
 
@@ -47,4 +47,4 @@ path = os.getenv('textpath')
 
 # Call the vectorize function with the provided index name and file path
 vectorize_txt(index_name, path)
-
+ 
